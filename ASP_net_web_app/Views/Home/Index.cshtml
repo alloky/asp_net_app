@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NewsViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!----div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</!--div-->
+
+<ul >
+    @foreach (var news in Model)
+    {
+    <div class="page-item">
+        <h3 class="card-title"> @news.Header  </h3> <br />
+        
+        <div class="row">
+            <div class="col-12">
+                <p class="card-body"> @news.Content.Substring(0, Math.Min(30, news.Content.Length)) ...  </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button type="button" class="btn btn-primary">Read more</button>
+            </div>
+        </div>
+    </div> 
+    }
+</ul>
